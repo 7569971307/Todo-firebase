@@ -6,12 +6,14 @@ function TodoApp() {
   const [newTask, setNewTask] = useState('');
 
   useEffect(() => {
-      const fetchData=async ()=>{
+     const fetchData=async ()=>{
         const response=await axios.get("https://my-first-project-7e52e-default-rtdb.firebaseio.com/register.json")
+        if(response.data){
         const data=Object.entries(response.data).map(([id,task])=>({id,...task}) )
-        console.log(data)
-        setTasks(data)
-        
+          setTasks(data)
+        }else{
+          setTasks([])
+        }
       }
 
       fetchData() 
