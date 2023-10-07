@@ -34,9 +34,8 @@ const addTask=async ()=>{
     const dataFull={
       text:newTask,
     }
-    await axios.post("https://my-first-project-7e52e-default-rtdb.firebaseio.com/register.json",dataFull).then(
-      ()=>alert("submitted"))
-      setNewTask('')
+    await axios.post("https://my-first-project-7e52e-default-rtdb.firebaseio.com/register.json",dataFull);
+      setNewTask('');
 
   }
    
